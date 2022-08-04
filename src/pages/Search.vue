@@ -8,7 +8,7 @@
             <div class="select_box" :style="height1">
                 <div class="select_box_input" @click.stop="OpenCard('height1','open')">
                     <div class="results">
-                        <img :src="img1" class="select_box_card_img" />
+                        <img :src="getImageUrl(img1)" class="select_box_card_img" />
                         <div class="select_box_card_text">{{text1}}</div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         :key="item.value"
                         @click="GetValue1(item)"
                     >
-                        <img :src="item.img" class="select_box_card_img" />
+                        <img :src="getImageUrl(item.img)" class="select_box_card_img" />
                         <div class="select_box_card_text">{{item.label}}</div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <div class="select_box" :style="height2">
                 <div class="select_box_input" @click.stop="OpenCard('height2','open')">
                     <div class="results">
-                        <img :src="img2" class="select_box_card_img" />
+                        <img :src="getImageUrl(img2)" class="select_box_card_img" />
                         <div class="select_box_card_text">{{text2}}</div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         :key="item.value"
                         @click="GetValue2(item)"
                     >
-                        <img :src="item.img" class="select_box_card_img" />
+                        <img :src="getImageUrl(item.img)" class="select_box_card_img" />
                         <div class="select_box_card_text">{{item.label}}</div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
     </div>
 </template>
 
-<script type="ts">
+<script>
 export default {
     el: "#Search",
     data() {
@@ -67,8 +67,8 @@ export default {
             height1: "height: 70px;",
             height2: "height: 70px;",
             height3: "height: 70px;",
-            img1: "/src/assets/images/baidu.png",
-            img2: "/src/assets/images/chrome.png",
+            img1: "baidu.png",
+            img2: "chrome.png",
             img3: "/src/assets/images/baidu.png",
             text1: "百度",
             text2: "chrome",
@@ -78,34 +78,37 @@ export default {
                 {
                     label: "百度",
                     value: "https://www.baidu.com/s?wd=",
-                    img: "/src/assets/images/baidu.png",
+                    img: "baidu.png",
                 },
                 {
                     label: "bilibili",
                     value: "https://search.bilibili.com/all?keyword=",
-                    img: "/src/assets/images/bilibili.png",
+                    img: "bilibili.png",
                 },
                 {
                     label: "github",
                     value: "https://github.com/search?q=",
-                    img: "/src/assets/images/github.png",
+                    img: "github.png",
                 },
             ],
             options2: [
                 {
                     value: "edge",
                     label: "edge",
-                    img: "/src/assets/images/edge.png",
+                    img: "edge.png",
                 },
                 {
                     value: "chrome",
                     label: "chrome",
-                    img: "/src/assets/images/chrome.png",
+                    img: "chrome.png",
                 },
                 {
                     value: "firefox",
                     label: "firefox",
-                    img: "/src/assets/images/firefox.png",
+                    logo: new URL(`../assets/svg/xxx.svg`, import.meta.url)
+                        .href,
+
+                    img: "firefox.png",
                 },
             ],
             options3: [
@@ -132,6 +135,9 @@ export default {
         },
     },
     methods: {
+         getImageUrl(name){
+            return new URL(`/src/assets/images/${name}`,import.meta.url).href
+         },
         Search() {
             window.open(this.target);
             this.search_content = "";
