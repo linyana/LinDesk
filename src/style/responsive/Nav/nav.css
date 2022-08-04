@@ -1,0 +1,45 @@
+/* ipad */
+@media only screen and (max-width: 1200px) {
+    .logo {
+        height: 38px !important;
+        width: 50px !important;
+    }
+
+    img {
+        left: 10px!important;
+    }
+
+    .menu_line_text {
+        display: none !important;
+    }
+
+    .menu_line {
+        padding: 0 10px !important;
+        margin: 10px 10px !important;
+    }
+
+    .select_box2,
+    .select_box3 {
+        display: none !important;
+    }
+
+    .input {
+        width: 100%!important;
+        text-align: center !important;
+    }
+
+    input {
+        width: 80% !important;
+    }
+
+    .select_boxes {
+        display: block !important;
+    }
+
+    .select_box {
+        margin: auto !important;
+    }
+}
+
+/* 手机端*/
+@media only screen and (max-width: 800px) {}

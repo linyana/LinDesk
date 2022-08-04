@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="select_box" :style="height2">
+            <div class="select_box select_box2" :style="height2">
                 <div class="select_box_input" @click.stop="OpenCard('height2','open')">
                     <div class="results">
                         <img :src="getImageUrl(img2)" class="select_box_card_img" />
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="select_box" :style="height3">
+            <div class="select_box select_box3" :style="height3">
                 <div class="select_box_input" @click.stop="OpenCard('height3','open')">
                     <div class="results">
                         <div class="select_box_card_text">内容待定</div>

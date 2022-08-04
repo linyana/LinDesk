@@ -17,8 +17,8 @@
 /* ipad */
 @media only screen and (max-width: 1200px) {
     #App {
-        width: 1000px !important;
-        left: calc(50% - 500px) !important;
+        max-width: 1000px !important;
+        left: 5% !important;
     }
 
     .nav {
@@ -35,13 +35,5 @@
     #App {
         width: 90% !important;
         left: 5% !important;
-    }
-
-    .nav {
-        width: 70px !important;
-    }
-
-    .page {
-        width: calc(100% - 70px) !important;
     }
 }

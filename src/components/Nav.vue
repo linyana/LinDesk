@@ -1,3 +1,9 @@
+<script setup>
+// css
+import css from "../style/responsive/Nav/nav.css";
+import theme from "../style/theme/dark.css";
+</script>
+
 <template>
     <div id="Nav">
         <div class="menu">
