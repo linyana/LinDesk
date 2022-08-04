@@ -107,7 +107,6 @@ export default {
                     label: "firefox",
                     logo: new URL(`../assets/svg/xxx.svg`, import.meta.url)
                         .href,
-
                     img: "firefox.png",
                 },
             ],
@@ -135,9 +134,9 @@ export default {
         },
     },
     methods: {
-         getImageUrl(name){
-            return new URL(`/src/assets/images/${name}`,import.meta.url).href
-         },
+        getImageUrl(name) {
+            return new URL(`/src/assets/images/${name}`, import.meta.url).href;
+        },
         Search() {
             window.open(this.target);
             this.search_content = "";
