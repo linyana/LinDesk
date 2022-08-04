@@ -54,7 +54,7 @@
     </div>
 </template>
 
-<script>
+<script type="ts">
 export default {
     el: "#Search",
     data() {
