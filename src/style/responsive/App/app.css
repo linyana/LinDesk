@@ -33,7 +33,10 @@
 /* 手机端 */
 @media only screen and (max-width: 800px) {
     #App {
-        width: 90% !important;
-        left: 5% !important;
+        width: 100% !important;
+        height: 100%!important;
+        top: 0!important;
+        left: 0 !important;
+        border-radius: 0!important;
     }
 }
