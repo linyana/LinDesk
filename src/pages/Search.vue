@@ -149,13 +149,13 @@ export default {
         // 拉开下拉框
         OpenCard(index, flag) {
             if (index === "height1") {
-                this.height1 = "height: 220px";
+                this.height1 = "height: 230px";
             }
             if (index === "height2") {
-                this.height2 = "height: 220px";
+                this.height2 = "height: 230px";
             }
             if (index === "height3") {
-                this.height3 = "height: 220px";
+                this.height3 = "height: 230px";
             }
         },
         // select框一选中
@@ -190,12 +190,12 @@ export default {
 }
 
 input {
+    text-align: center;
     width: 100%;
     height: 100%;
     border-radius: 15px;
     outline: none;
     border: none;
-    text-indent: 1em;
     background-color: rgba(218, 222, 230, 0.5);
     color: rgb(184, 184, 184);
     font-size: 19px;
@@ -225,7 +225,7 @@ select {
 .select_box {
     border-radius: 20px;
     width: 200px;
-    height: 220px;
+    height: 230px;
     background-color: #343943;
     transition: all 0.8s;
     overflow: hidden;
@@ -238,7 +238,7 @@ select {
 }
 
 .select_box_cards {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .select_box_card {
