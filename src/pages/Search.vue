@@ -93,7 +93,7 @@ function Open(target: string) {
 }
 
 function getImageUrl(name) {
-    return new URL(`${name}`, import.meta.url).href;
+    return new URL(`/src/assets/images/${name}`, import.meta.url).href;
 }
 </script>
 
