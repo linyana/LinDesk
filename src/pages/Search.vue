@@ -45,7 +45,7 @@ function EnterSearch(): void {
 }
 
 // 常用标签
-const boxes:string[] = [
+const boxes:any = [
     {
         text: "百度",
         src: "https://www.baidu.com",
