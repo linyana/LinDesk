@@ -9,14 +9,12 @@
             />
         </div>
         <div class="menu">
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
-            <div class="box filter_box"></div>
+            <div class="box filter_box" v-for="box in boxes" :key="box.src" @click="Open(box.src)">
+                <div class="box_img">
+                    <img :src="box.img" alt="图片加载失败" />
+                </div>
+                <div class="box_text">{{box.text}}</div>
+            </div>
         </div>
     </div>
 </template>
@@ -44,6 +42,54 @@ watch(
 function EnterSearch(): void {
     window.open(target, "_self");
     search_content.value = "";
+}
+
+// 常用标签
+const boxes = [
+    {
+        text: "百度",
+        src: "https://www.baidu.com",
+        img: "/src/assets/images/1.png",
+    },
+    {
+        text: "bilibili",
+        src: "https://www.bilibili.com/",
+        img: "/src/assets/images/2.png",
+    },
+    {
+        text: "Github",
+        src: "https://github.com/",
+        img: "/src/assets/images/3.png",
+    },
+    {
+        text: "qq邮箱",
+        src: "https://mail.qq.com/",
+        img: "/src/assets/images/4.png",
+    },
+    {
+        text: "有道翻译",
+        src: "https://fanyi.youdao.com/",
+        img: "/src/assets/images/5.png",
+    },
+    {
+        text: "b站动态",
+        src: "https://t.bilibili.com/",
+        img: "/src/assets/images/6.png",
+    },
+    {
+        text: "知乎",
+        src: "https://www.zhihu.com/",
+        img: "/src/assets/images/7.png",
+    },
+    {
+        text: "图标库",
+        src: "https://www.iconfont.cn/",
+        img: "/src/assets/images/8.png",
+    },
+];
+
+function Open(target: string) {
+    window.open(target, "_self");
 }
 </script>
 
@@ -102,9 +148,33 @@ function EnterSearch(): void {
 }
 
 .box {
-    width: 100px;
-    height: 100px;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
     border-radius: 10px;
     margin: 20px;
+}
+
+.box_img {
+    margin-top: 22.5px;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+.box_img img {
+    width: 45px;
+    height: 45px;
+}
+
+.box_text {
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    width: 120px;
+    text-align: center;
+    color: var(--default-color);
+    font-weight: 700;
+    font-size: 18px;
 }
 </style>

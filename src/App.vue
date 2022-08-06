@@ -1,22 +1,28 @@
 
 <template>
     <div id="App"></div>
+    <div id="LeftNav">
+        <LeftNav />
+    </div>
     <div id="Pages" :class="classes.theme">
         <Search />
     </div>
 </template>
 
 <script lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, defineComponent } from "vue";
 import Search from "./pages/Search.vue";
+import LeftNav from "./components/LeftNav.vue";
 
-export default {
+export default defineComponent({
     components: {
         Search,
+        LeftNav,
     },
     setup() {
         // 主题切换
         interface Theme {
+            defaultColor: string;
             color: string;
             backgroundColor: string;
             floatBackgroundColor: string;
@@ -24,6 +30,7 @@ export default {
 
         // 暗色主题
         class Dark implements Theme {
+            public defaultColor = "rgba(255,255,255,0.8)";
             public color = "rbg(0,0,0,0.8)";
             public backgroundColor = "black";
             public floatBackgroundColor = "black";
@@ -31,6 +38,7 @@ export default {
 
         // 亮色主题
         class Light implements Theme {
+            public defaultColor = "rgba(255,255,255,0.8)";
             public color = "rbg(0,0,0,0.3)";
             public backgroundColor = "green";
             public floatBackgroundColor = "rgba(255,255,255,0.5)";
@@ -60,10 +68,10 @@ export default {
         }
         return {
             theme,
-            ChangeTheme
-        }
+            ChangeTheme,
+        };
     },
-};
+});
 </script>
 
 
@@ -92,6 +100,7 @@ export default {
 .theme {
     --background-color: v-bind("theme.backgroundColor");
     --color: v-bind("theme.color");
+    --default-color: v-bind("theme.defaultColor");
     --float-backgroundColor: v-bind("theme.floatBackgroundColor");
 }
 </style>
