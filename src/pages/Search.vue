@@ -1,13 +1,40 @@
 <template>
     <div id="Search">
         <div class="search">
-            <input type="text" />
+            <input
+                type="text"
+                v-model="search_content"
+                placeholder="搜索"
+                @keydown.enter="EnterSearch()"
+            />
         </div>
     </div>
 </template>
 
-<script lang="ts">
-export default {};
+<script setup lang="ts">
+import { ref, watch } from "vue";
+
+const search_content = ref("");
+const search_target = ref("https://www.baidu.com/s?wd=");
+let target: string;
+
+// 监视input框里的内容，赋值给target
+watch(
+    () => search_content,
+    (newValue) => {
+        target = search_target.value + search_content.value;
+    },
+    {
+        immediate: true,
+        deep: true,
+    }
+);
+
+// 搜索
+function EnterSearch(): void {
+    window.open(target, "_self");
+    search_content.value = "";
+}
 </script>
 
 <style scoped>
@@ -20,20 +47,15 @@ export default {};
     background-color: var(--float-backgroundColor);
     box-shadow: 3px 3px 10px #00000050;
     backdrop-filter: blur(20px);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    transition: 0.25s;
-    z-index: 5;
 }
 
 .search input {
     width: 100%;
     border: none;
     background-color: transparent;
-    border-radius: 6px;
+    border-radius: 10px;
     height: 30px;
     font-size: 19px;
     font-weight: 700;
@@ -41,5 +63,6 @@ export default {};
     color: var(--color);
     line-height: 30px;
     text-align: center;
+    letter-spacing: 1px;
 }
 </style>
