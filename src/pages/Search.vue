@@ -88,12 +88,12 @@ const boxes = [
     },
 ];
 
-function Open(target: string) {
+function Open(target: string):void {
     window.open(target, "_self");
 }
 
-function getImageUrl(name) {
-    return new URL(`/src/assets/images/${name}`, import.meta.url).href;
+function getImageUrl(name:string):void {
+    return new URL(`../assets/images/${name}`, import.meta.url).href;
 }
 </script>
 
