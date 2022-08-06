@@ -138,7 +138,7 @@ function getImageUrl(name:string):string {
     margin: auto;
     margin-top: 60px;
     width: 100%;
-    height: 320px;
+    min-height: 340px;
     border-radius: 15px;
     padding: 10px;
     transition: all 0.8s;
