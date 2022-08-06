@@ -45,7 +45,7 @@ function EnterSearch(): void {
 }
 
 // 常用标签
-const boxes = [
+const boxes:string[] = [
     {
         text: "百度",
         src: "https://www.baidu.com",
@@ -92,7 +92,7 @@ function Open(target: string):void {
     window.open(target, "_self");
 }
 
-function getImageUrl(name:string):void {
+function getImageUrl(name:string):string {
     return new URL(`../assets/images/${name}`, import.meta.url).href;
 }
 </script>
