@@ -1,12 +1,22 @@
 <template>
     <div id="Search">
-        <div class="search">
+        <div class="search filter_box">
             <input
                 type="text"
                 v-model="search_content"
                 placeholder="搜索"
                 @keydown.enter="EnterSearch()"
             />
+        </div>
+        <div class="menu">
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
+            <div class="box filter_box"></div>
         </div>
     </div>
 </template>
@@ -38,17 +48,25 @@ function EnterSearch(): void {
 </script>
 
 <style scoped>
+#Search {
+    margin: auto;
+    width: 50%;
+    max-width: 650px;
+}
+
+.filter_box {
+    backdrop-filter: blur(20px);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--float-backgroundColor);
+    padding: 10px;
+}
+
 .search {
     margin: auto;
-    margin-top: 300px;
-    width: 50%;
-    max-width: 600px;
+    margin-top: 200px;
+    width: 100%;
     height: 30px;
-    background-color: var(--float-backgroundColor);
-    box-shadow: 3px 3px 10px #00000050;
-    backdrop-filter: blur(20px);
     border-radius: 15px;
-    padding: 10px;
 }
 
 .search input {
@@ -64,5 +82,29 @@ function EnterSearch(): void {
     line-height: 30px;
     text-align: center;
     letter-spacing: 1px;
+}
+
+.menu {
+    margin: auto;
+    margin-top: 60px;
+    width: 100%;
+    height: 320px;
+    border-radius: 15px;
+    padding: 10px;
+    transition: all 0.8s;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menu:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 20px;
 }
 </style>
