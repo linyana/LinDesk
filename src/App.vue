@@ -1,37 +1,16 @@
 <template>
-    <div id="App" :class="classes.light">
+    <div id="App" :class="classes.theme">
         <button @click="ChangeTheme">切换主题</button>
+        {{theme.backgroundColor}}
     </div>
 </template>
 
 <script lang="ts">
-// export default {
-//     setup() {
-//         interface Dark {
-//             light: string;
-//             backgroundColor: string;
-//         }
-
-//         const dark: Dark = {
-//             light: "green",
-//             backgroundColor: "black",
-//         };
-
-//         interface Light extends Dark {}
-
-//         const light: Light = {
-//             light: "green",
-//             backgroundColor: "black",
-//         };
-
-//         return {
-//             dark,
-//         };
-//     },
-// };
+import { reactive, ref } from "vue";
 
 export default {
     setup() {
+        // 主题切换
         interface Theme {
             color: string;
             backgroundColor: string;
@@ -50,19 +29,24 @@ export default {
         const dark = new Dark();
         const light = new Light();
 
-        const theme = dark;
+        let theme = ref(dark);
 
-        // ChangeTheme
-        function ChangeTheme(){
-            if(localStorage.getItem('theme') === 'light'){
-                localStorage.setItem('theme','dark');
+        // 改变主题
+        function ChangeTheme() {
+            if (localStorage.getItem("theme") === "light") {
+                localStorage.setItem("theme", "dark");
+                theme.value = dark;
+            } else {
+                localStorage.setItem("theme", "light");
+                theme.value = light;
             }
         }
 
         return {
             dark,
             light,
-            theme
+            theme,
+            ChangeTheme,
         };
     },
 };
@@ -77,11 +61,10 @@ export default {
 </style>
 
 <style module="classes">
-.dark {
-    background-color: v-bind("dark.backgroundColor");
+.theme {
+    transition: all 0.5s;
+    background-color: v-bind("theme.backgroundColor");
+    color: v-bind("theme.color");
 }
 
-.light {
-    background-color: v-bind("light.backgroundColor");
-}
 </style>
