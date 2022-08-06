@@ -11,7 +11,7 @@
         <div class="menu">
             <div class="box filter_box" v-for="box in boxes" :key="box.src" @click="Open(box.src)">
                 <div class="box_img">
-                    <img :src="box.img" alt="图片加载失败" />
+                    <img :src="getImageUrl(box.img)" alt="图片加载失败" />
                 </div>
                 <div class="box_text">{{box.text}}</div>
             </div>
@@ -49,47 +49,51 @@ const boxes = [
     {
         text: "百度",
         src: "https://www.baidu.com",
-        img: "/src/assets/images/1.png",
+        img: "1.png",
     },
     {
         text: "bilibili",
         src: "https://www.bilibili.com/",
-        img: "/src/assets/images/2.png",
+        img: "2.png",
     },
     {
         text: "Github",
         src: "https://github.com/",
-        img: "/src/assets/images/3.png",
+        img: "3.png",
     },
     {
         text: "qq邮箱",
         src: "https://mail.qq.com/",
-        img: "/src/assets/images/4.png",
+        img: "4.png",
     },
     {
         text: "有道翻译",
         src: "https://fanyi.youdao.com/",
-        img: "/src/assets/images/5.png",
+        img: "5.png",
     },
     {
         text: "b站动态",
         src: "https://t.bilibili.com/",
-        img: "/src/assets/images/6.png",
+        img: "6.png",
     },
     {
         text: "知乎",
         src: "https://www.zhihu.com/",
-        img: "/src/assets/images/7.png",
+        img: "7.png",
     },
     {
         text: "图标库",
         src: "https://www.iconfont.cn/",
-        img: "/src/assets/images/8.png",
+        img: "8.png",
     },
 ];
 
 function Open(target: string) {
     window.open(target, "_self");
+}
+
+function getImageUrl(name) {
+    return new URL(`${name}`, import.meta.url).href;
 }
 </script>
 
