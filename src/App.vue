@@ -1,11 +1,12 @@
 
 <template>
-    <div id="App"></div>
-    <div id="LeftNav">
-        <LeftNav />
-    </div>
-    <div id="Pages" :class="classes.theme">
-        <Search />
+    <div id="App" :class="classes.theme">
+        <div id="LeftNav">
+            <LeftNav />
+        </div>
+        <div id="Pages">
+            <Search />
+        </div>
     </div>
 </template>
 
@@ -26,22 +27,25 @@ export default defineComponent({
             color: string;
             backgroundColor: string;
             floatBackgroundColor: string;
+            floatBackgroundColorHover: string;
         }
 
         // 暗色主题
         class Dark implements Theme {
             public defaultColor = "rgba(255,255,255,0.8)";
-            public color = "rbg(0,0,0,0.8)";
+            public color = "#747474";
             public backgroundColor = "black";
             public floatBackgroundColor = "black";
+            public floatBackgroundColorHover = "black";
         }
 
         // 亮色主题
         class Light implements Theme {
             public defaultColor = "rgba(255,255,255,0.8)";
-            public color = "rbg(0,0,0,0.3)";
+            public color = "#747474";
             public backgroundColor = "green";
             public floatBackgroundColor = "rgba(255,255,255,0.5)";
+            public floatBackgroundColorHover = "rgba(255,255,255,0.7)";
         }
 
         // 实例化对象
@@ -102,5 +106,6 @@ export default defineComponent({
     --color: v-bind("theme.color");
     --default-color: v-bind("theme.defaultColor");
     --float-backgroundColor: v-bind("theme.floatBackgroundColor");
+    --float-backgroundColor-hover: v-bind("theme.floatBackgroundColorHover");
 }
 </style>

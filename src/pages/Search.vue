@@ -45,7 +45,7 @@ function EnterSearch(): void {
 }
 
 // 常用标签
-const boxes:any = [
+const boxes: any = [
     {
         text: "百度",
         src: "https://www.baidu.com",
@@ -88,11 +88,11 @@ const boxes:any = [
     },
 ];
 
-function Open(target: string):void {
+function Open(target: string): void {
     window.open(target, "_self");
 }
 
-function getImageUrl(name:string):string {
+function getImageUrl(name: string): string {
     return new URL(`../assets/images/${name}`, import.meta.url).href;
 }
 </script>
@@ -157,6 +157,11 @@ function getImageUrl(name:string):string {
     height: 90px;
     border-radius: 10px;
     margin: 20px;
+    transition: background-color 0.2s;
+}
+
+.box:hover {
+    background-color: var(--float-backgroundColor-hover);
 }
 
 .box_img {
@@ -181,4 +186,5 @@ function getImageUrl(name:string):string {
     font-weight: 700;
     font-size: 18px;
 }
+
 </style>
