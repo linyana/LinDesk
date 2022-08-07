@@ -7,6 +7,9 @@
         <div id="Pages">
             <Search />
         </div>
+        <div id="RightNav">
+            <RightNav />
+        </div>
     </div>
 </template>
 
@@ -14,11 +17,13 @@
 import { reactive, ref, defineComponent } from "vue";
 import Search from "./pages/Search.vue";
 import LeftNav from "./components/LeftNav.vue";
+import RightNav from "./components/RightNav.vue";
 
 export default defineComponent({
     components: {
         Search,
         LeftNav,
+        RightNav,
     },
     setup() {
         // 主题切换
@@ -97,6 +102,29 @@ export default defineComponent({
     left: 100px;
     width: calc(100% - 200px);
     height: 90%;
+}
+
+#LeftNav {
+    position: absolute;
+    left: 20px;
+    top: 0;
+}
+
+#RightNav {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 80px;
+    height: 200px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: all 0.8s;
+}
+
+#RightNav:hover {
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 </style>
 
