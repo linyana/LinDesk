@@ -148,6 +148,7 @@ function getImageUrl(name: string): string {
 }
 
 .menu:hover {
+    background-color: rgb(255, 255, 255, 0.1);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -186,5 +187,4 @@ function getImageUrl(name: string): string {
     font-weight: 700;
     font-size: 18px;
 }
-
 </style>
