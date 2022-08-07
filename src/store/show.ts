@@ -14,6 +14,12 @@ export const showStore = defineStore('rightNav', {
         }
     },
     persist: {
-        enabled: true
+        enabled: true,
+        strategies: [
+            {
+                key: 'isShow',
+                storage: localStorage,
+            }
+        ]
     }
 })
