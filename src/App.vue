@@ -115,17 +115,8 @@ export default defineComponent({
     right: 20px;
     top: 0;
     width: 80px;
-    height: 200px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    transition: all 0.8s;
 }
 
-#RightNav:hover {
-    cursor: pointer;
-    background-color: rgb(255, 255, 255, 0.1);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-}
 </style>
 
 <style module="classes">

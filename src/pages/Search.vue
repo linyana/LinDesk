@@ -1,6 +1,6 @@
 <template>
     <div id="Search">
-        <div class="search filter_box">
+        <div :class="search_classes">
             <input
                 type="text"
                 v-model="search_content"
@@ -8,7 +8,7 @@
                 @keydown.enter="EnterSearch()"
             />
         </div>
-        <div class="menu">
+        <div class="menu" v-show="store.isShow">
             <div class="box filter_box" v-for="box in boxes" :key="box.src" @click="Open(box.src)">
                 <div class="box_img">
                     <img :src="getImageUrl(box.img)" alt="图片加载失败" />
@@ -21,7 +21,29 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { showStore } from "../store/show";
 
+const store = showStore();
+
+let search_classes = ref("");
+if (store.isShow === true) {
+    search_classes.value = "search filter_box search_top";
+} else {
+    search_classes.value = "search filter_box search_bottom";
+}
+
+watch(
+    () => store.isShow,
+    (newValue) => {
+        if (newValue === true) {
+            search_classes.value = "search filter_box search_top";
+        } else {
+            search_classes.value = "search filter_box search_bottom";
+        }
+    }
+);
+
+// 搜索栏的内容
 const search_content = ref("");
 const search_target = ref("https://www.baidu.com/s?wd=");
 let target: string;
@@ -113,10 +135,18 @@ function getImageUrl(name: string): string {
 
 .search {
     margin: auto;
-    margin-top: 200px;
     width: 100%;
     height: 30px;
     border-radius: 15px;
+    transition: all 0.8s;
+}
+
+.search_top {
+    margin-top: 200px;
+}
+
+.search_bottom {
+    margin-top: 300px;
 }
 
 .search input {

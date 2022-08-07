@@ -16,12 +16,16 @@
       "DOM"
     ],
     "skipLibCheck": true,
+    "types": [
+      "pinia-plugin-persist"
+    ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/store/index.ts"
   ],
   "references": [
     {

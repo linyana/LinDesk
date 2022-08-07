@@ -1,18 +1,26 @@
 <template>
     <div id="rightNav">
-        <div class="circle">
+        <div class="circle" @click="ChangeShow">
             <img :src="getImageUrl(img1)" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { showStore } from "../store/show";
 
-const img1 = '1.png'
+// pinia
+const store = showStore();
+
+const img1 = "1.png";
 
 function getImageUrl(name: string): string {
     return new URL(`../assets/images/rightNav/${name}`, import.meta.url).href;
 }
+
+const ChangeShow = () => {
+    store.isShow = !store.isShow;
+};
 </script>
 
 
@@ -24,6 +32,7 @@ function getImageUrl(name: string): string {
 }
 
 .circle {
+    cursor: pointer;
     text-align: center;
     margin: 10px auto;
     width: 70px;
