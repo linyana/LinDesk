@@ -8,14 +8,21 @@
                 @keydown.enter="EnterSearch()"
             />
         </div>
-        <div class="menu" v-show="store.isShow">
-            <div class="box filter_box" v-for="box in boxes" :key="box.src" @click="Open(box.src)">
-                <div class="box_img">
-                    <img :src="getImageUrl(box.img)" alt="图片加载失败" />
+        <transition name="menu">
+            <div class="menu" v-show="store.isShow">
+                <div
+                    class="box filter_box"
+                    v-for="box in boxes"
+                    :key="box.src"
+                    @click="Open(box.src)"
+                >
+                    <div class="box_img">
+                        <img :src="getImageUrl(box.img)" alt="图片加载失败" />
+                    </div>
+                    <div class="box_text">{{box.text}}</div>
                 </div>
-                <div class="box_text">{{box.text}}</div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -146,7 +153,8 @@ function getImageUrl(name: string): string {
 }
 
 .search_bottom {
-    margin-top: 300px;
+    margin-top: 50%;
+    transform: translateY(-50%);
 }
 
 .search input {
@@ -217,5 +225,21 @@ function getImageUrl(name: string): string {
     color: var(--default-color);
     font-weight: 700;
     font-size: 18px;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+    opacity: 0;
+}
+.menu-enter-to,
+.menu-leave-from {
+    opacity: 1;
+}
+
+.menu-enter-active {
+    transition: opacity 0.8s ease;
+}
+.menu-leave-active {
+    transition: opacity 0.8s ease;
 }
 </style>
