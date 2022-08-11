@@ -129,7 +129,7 @@ function getImageUrl(name: string): string {
 // 焦点
 const refInput = ref();
 
-const getFocus = async (newMessage:any) => {
+const getFocus = async () => {
     nextTick(() => {
         refInput.value.focus();
     });
