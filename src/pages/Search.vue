@@ -6,6 +6,7 @@
                 v-model="search_content"
                 placeholder="搜索"
                 @keydown.enter="EnterSearch()"
+                ref="refInput"
             />
         </div>
         <transition name="menu">
@@ -27,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, nextTick } from "vue";
 import { showStore } from "../store/show";
 
 const store = showStore();
@@ -124,6 +125,17 @@ function Open(target: string): void {
 function getImageUrl(name: string): string {
     return new URL(`../assets/images/${name}`, import.meta.url).href;
 }
+
+// 焦点
+const refInput = ref();
+
+const getFocus = async (newMessage) => {
+    nextTick(() => {
+        refInput.value.focus();
+    });
+};
+
+getFocus();
 </script>
 
 <style scoped>
