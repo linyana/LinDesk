@@ -38,17 +38,17 @@ export default defineComponent({
         // 暗色主题
         class Dark implements Theme {
             public defaultColor = "rgba(255,255,255,0.8)";
-            public color = "#747474";
+            public color = "white";
             public backgroundColor = "black";
-            public floatBackgroundColor = "black";
-            public floatBackgroundColorHover = "black";
+            public floatBackgroundColor = "rgba(0,0,0,0.5)";
+            public floatBackgroundColorHover = "rgba(0,0,0,0.7)";
         }
 
         // 亮色主题
         class Light implements Theme {
             public defaultColor = "rgba(255,255,255,0.8)";
             public color = "#747474";
-            public backgroundColor = "green";
+            public backgroundColor = "white";
             public floatBackgroundColor = "rgba(255,255,255,0.5)";
             public floatBackgroundColorHover = "rgba(255,255,255,0.7)";
         }
