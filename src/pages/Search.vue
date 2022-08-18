@@ -243,6 +243,7 @@ getFocus();
 .menu-leave-to {
     opacity: 0;
 }
+
 .menu-enter-to,
 .menu-leave-from {
     opacity: 1;
