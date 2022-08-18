@@ -6,6 +6,7 @@
         </div>
         <div id="Pages">
             <Search />
+            <Weather />
         </div>
         <div id="RightNav">
             <RightNav />
@@ -18,12 +19,14 @@ import { reactive, ref, defineComponent } from "vue";
 import Search from "./pages/Search.vue";
 import LeftNav from "./components/LeftNav.vue";
 import RightNav from "./components/RightNav.vue";
+import Weather from "./pages/Weather.vue";
 
 export default defineComponent({
     components: {
         Search,
         LeftNav,
         RightNav,
+        Weather,
     },
     setup() {
         // 主题切换
@@ -116,7 +119,6 @@ export default defineComponent({
     top: 0;
     width: 80px;
 }
-
 </style>
 
 <style module="classes">
