@@ -1,5 +1,5 @@
 <template>
-    <div id="Search">
+    <div id="search">
         <div :class="search_classes">
             <input
                 type="text"
@@ -139,7 +139,7 @@ getFocus();
 </script>
 
 <style scoped>
-#Search {
+#search {
     margin: auto;
     width: 50%;
     max-width: 650px;

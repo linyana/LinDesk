@@ -9,7 +9,6 @@ let city = ref('');
 
 
 
-
 </script>
 
 <style scoped>

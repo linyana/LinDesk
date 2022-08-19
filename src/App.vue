@@ -111,6 +111,7 @@ export default defineComponent({
     position: absolute;
     left: 20px;
     top: 0;
+    width: 80px;
 }
 
 #RightNav {

@@ -34,7 +34,7 @@ const ChangeShow = () => {
 .circle {
     cursor: pointer;
     text-align: center;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 70px;
     height: 70px;
     border-radius: 70px;
