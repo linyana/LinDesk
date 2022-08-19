@@ -1,17 +1,23 @@
 <template>
-    <div id="leftNav">
-        <div class="circle" :plain="true" @click="toSearch">
-            <img :src="getImageUrl(img1)" />
+    <transition name="leftNav">
+        <div id="leftNav" v-if="store.isShow">
+            <div class="circle" :plain="true" @click="toSearch">
+                <img :src="getImageUrl(img1)" />
+            </div>
+            <div class="circle" :plain="true" @click="open1">
+                <img :src="getImageUrl(img2)" />
+            </div>
         </div>
-        <div class="circle" :plain="true" @click="open1">
-            <img :src="getImageUrl(img2)" />
-        </div>
-    </div>
+    </transition>
 </template>
 
 <script setup lang="ts">
 import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
+import { showStore } from "../store/show";
+
+// pinia
+const store = showStore();
 
 // 功能未开放提示
 const open1 = () => {
@@ -68,5 +74,24 @@ img {
     margin-top: 13px;
     width: 25px;
     height: 25px;
+}
+
+.leftNav-enter-from,
+.leftNav-leave-to {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.leftNav-enter-to,
+.leftNav-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.leftNav-enter-active {
+    transition: all  0.8s ease;
+}
+.leftNav-leave-active {
+    transition: all 0.8s ease;
 }
 </style>

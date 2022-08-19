@@ -12,6 +12,7 @@ import { showStore } from "../store/show";
 // pinia
 const store = showStore();
 
+// 图片
 const img1 = "1.png";
 
 function getImageUrl(name: string): string {
