@@ -47,8 +47,8 @@ function getImageUrl(name: string): string {
     cursor: pointer;
     text-align: center;
     margin: 20px auto;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 70px;
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
@@ -65,8 +65,8 @@ function getImageUrl(name: string): string {
 }
 
 img {
-    margin-top: 17px;
-    width: 35px;
-    height: 35px;
+    margin-top: 13px;
+    width: 25px;
+    height: 25px;
 }
 </style>

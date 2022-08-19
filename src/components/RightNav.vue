@@ -35,8 +35,8 @@ const ChangeShow = () => {
     cursor: pointer;
     text-align: center;
     margin: 20px auto;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 70px;
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
@@ -54,7 +54,7 @@ const ChangeShow = () => {
 
 img {
     margin-top: 10px;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 </style>

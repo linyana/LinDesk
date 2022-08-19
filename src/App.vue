@@ -108,14 +108,14 @@ export default defineComponent({
 
 #LeftNav {
     position: absolute;
-    left: 20px;
+    left: 0;
     top: 0;
     width: 80px;
 }
 
 #RightNav {
     position: absolute;
-    right: 20px;
+    right: 0;
     top: 0;
     width: 80px;
 }
