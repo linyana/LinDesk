@@ -4,7 +4,7 @@
             <div class="circle" :plain="true" @click="toSearch">
                 <img :src="getImageUrl(img1)" />
             </div>
-            <div class="circle" :plain="true" @click="open1">
+            <div class="circle" :plain="true" @click="toWeather">
                 <img :src="getImageUrl(img2)" />
             </div>
         </div>
@@ -20,10 +20,10 @@ import { showStore } from "../store/show";
 const store = showStore();
 
 // 功能未开放提示
-const open1 = () => {
+const open = () => {
     ElMessage({
         showClose: true,
-        message: "功能暂未开放",
+        message: "敬请期待",
     });
 };
 
@@ -33,6 +33,11 @@ const router = useRouter();
 const toSearch = () => {
     router.push("Search");
 };
+
+const toWeather = ()=>{
+    open();
+    router.push("Weather");
+}
 
 // 图片
 const img1 = "1.png";

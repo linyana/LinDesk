@@ -5,7 +5,13 @@
             <LeftNav />
         </div>
         <div id="Pages">
-            <router-view></router-view>
+            <router-view v-slot="{ Component, route }">
+                <transition :name="route.meta.transition || 'page'" mode="out-in">
+                    <keep-alive>
+                            <component :is="Component"></component>
+                    </keep-alive>
+                </transition>
+            </router-view>
         </div>
         <div id="RightNav">
             <RightNav />
@@ -118,6 +124,33 @@ export default defineComponent({
     right: 0;
     top: 0;
     width: 80px;
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.page-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-enter-active {
+    transition: all 0.6s ease;
+}
+.page-leave-active {
+    transition: all 0.6s ease;
 }
 </style>
 

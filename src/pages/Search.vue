@@ -255,4 +255,5 @@ getFocus();
 .menu-leave-active {
     transition: opacity 0.8s ease;
 }
+
 </style>
