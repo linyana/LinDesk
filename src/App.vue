@@ -5,8 +5,7 @@
             <LeftNav />
         </div>
         <div id="Pages">
-            <Search />
-            <Weather />
+            <router-view></router-view>
         </div>
         <div id="RightNav">
             <RightNav />

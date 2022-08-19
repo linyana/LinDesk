@@ -1,6 +1,6 @@
 <template>
     <div id="leftNav">
-        <div class="circle" :plain="true" @click="open1">
+        <div class="circle" :plain="true" @click="toSearch">
             <img :src="getImageUrl(img1)" />
         </div>
         <div class="circle" :plain="true" @click="open1">
@@ -10,16 +10,25 @@
 </template>
 
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
+import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
 
+// 功能未开放提示
 const open1 = () => {
-  ElMessage({
-      showClose: true,
-      message: '功能暂未开放'
-  })
-}
+    ElMessage({
+        showClose: true,
+        message: "功能暂未开放",
+    });
+};
 
+// 路由
+const router = useRouter();
 
+const toSearch = () => {
+    router.push("Search");
+};
+
+// 图片
 const img1 = "1.png";
 const img2 = "5.png";
 
