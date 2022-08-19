@@ -13,7 +13,10 @@
 import { ElMessage } from 'element-plus'
 
 const open1 = () => {
-  ElMessage('功能暂未开放')
+  ElMessage({
+      showClose: true,
+      message: '功能暂未开放'
+  })
 }
 
 
