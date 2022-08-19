@@ -9,9 +9,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { cityStore } from "../store/city.ts";
+import { cityStore } from "../store/city";
 
-const store = new cityStore();
+const store = cityStore();
 
 let city = ref(store.city);
 if (["", " ", null].includes(city.value)) {
