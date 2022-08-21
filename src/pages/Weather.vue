@@ -21,17 +21,17 @@ import { cityStore } from "../store/city";
 // store.city:城市
 const store = cityStore();
 
-let city: string = ref(store.city);
+let city = ref(store.city);
 if (["", " ", null].includes(store.city)) {
     city.value = store.city = "成都";
 }
 
 
 // 输入框
-const cityInput: string = ref(store.city);
-let isWrite: boolean = ref(false);
+const cityInput = ref(store.city);
+let isWrite = ref(false);
 
-let isWriteStyle: string = ref(`width: ${100 + 20 * city.value.length}px;`);
+let isWriteStyle = ref(`width: ${100 + 20 * city.value.length}px;`);
 
 const ShowInput = () => {
     isWrite.value = true;
