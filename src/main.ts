@@ -7,12 +7,21 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import * as VueRouter from "vue-router";
 import routes from "./route/index";
+import axios from "./plugins/axios";
 
+// vue-router
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
     routes,
 });
 
+// pinia
 const pinia = createPinia().use(piniaPersist);
 
-createApp(App).use(pinia).use(ElementPlus).use(router).mount('#app');
+const app = createApp(App);
+
+app.use(pinia).use(ElementPlus).use(router);
+
+app.mount('#app');
+
+app.config.globalProperties.$axios = axios;

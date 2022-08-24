@@ -23,7 +23,7 @@ const store = showStore();
 const open = () => {
     ElMessage({
         showClose: true,
-        message: "敬请期待",
+        message: "加急开发中",
     });
 };
 

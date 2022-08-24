@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "element-plus": "^2.2.13",
     "pinia": "^2.0.17",
     "pinia-plugin-persist": "^1.0.0",

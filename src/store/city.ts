@@ -18,7 +18,7 @@ export const cityStore = defineStore('city', {
             {
                 key: 'city',
                 storage: localStorage,
-            }
+            },
         ]
     }
 })
