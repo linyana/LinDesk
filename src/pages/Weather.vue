@@ -82,7 +82,7 @@ const getFocus = async () => {
 };
 
 // 监视store.city来获取天气
-const weather = reactive({
+const weather:any = reactive({
     list: [],
 });
 
@@ -91,12 +91,11 @@ async function GetWeather() {
         .get("http://wthrcdn.etouch.cn/weather_mini?city=" + store.city)
         .then((response) => {
             weather.list = response.data.data.forecast;
-            console.log(weather.list)
         });
 }
 GetWeather();
 
-const GetWeatherImg = (src) => {
+const GetWeatherImg = (src:string) => {
     return new URL(`../assets/images/weather/${src}.png`, import.meta.url).href;
 };
 
