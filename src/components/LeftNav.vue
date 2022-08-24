@@ -35,7 +35,6 @@ const toSearch = () => {
 };
 
 const toWeather = ()=>{
-    open();
     router.push("Weather");
 }
 
