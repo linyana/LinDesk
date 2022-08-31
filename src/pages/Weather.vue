@@ -14,21 +14,13 @@
             <div class="hover_weather_cards">
                 <div class="weather_card" v-for="list in weather.list" :key="list.data">
                     <div class="weather_card_img">
-                        <img :src="GetWeatherImg(list.type)" alt="list.type" />
+                        <img :src="GetWeatherImg(list.wea_day)" alt="list.type" />
                     </div>
                     <div class="weather_card_text">
-                        <div class="weather_date">
-                            {{month+1}}月{{list.date}}
-                        </div>
-                        <div class="weather_line">
-                            {{list.type}}
-                        </div>
-                        <div class="weather_line weather_high">
-                            {{list.high}}
-                        </div>
-                        <div class="weather_line weather_low">
-                            {{list.low}}
-                        </div>
+                        <div class="weather_date">{{month+1}}月{{list.day}}</div>
+                        <div class="weather_line">{{list.wea_day}}</div>
+                        <div class="weather_line weather_high">最高温度:{{list.tem1}}</div>
+                        <div class="weather_line weather_low">最低温度:{{list.tem2}}</div>
                     </div>
                 </div>
             </div>
@@ -46,9 +38,6 @@ import axios from "axios";
 const store = cityStore();
 
 let city = ref(store.city);
-if (["", " ", null].includes(store.city)) {
-    city.value = store.city = "成都";
-}
 
 // 输入框
 // isWrite: 判断应该显示输入框还是提示框
@@ -68,7 +57,7 @@ const EnterCityInput = () => {
     store.city = cityInput.value;
     city.value = store.city;
     isWriteStyle.value = `width: ${120 + 20 * city.value.length}px;`;
-    GetWeather();
+    ChangeWeatherCity();
 };
 
 // 获取input焦点
@@ -82,26 +71,41 @@ const getFocus = async () => {
 };
 
 // 监视store.city来获取天气
-const weather:any = reactive({
+const weather: any = reactive({
     list: [],
 });
 
 async function GetWeather() {
     await axios
-        .get("http://wthrcdn.etouch.cn/weather_mini?city=" + store.city)
+        .get(
+            "https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=41683822&appsecret=A7hMMWSV"
+        )
         .then((response) => {
-            weather.list = response.data.data.forecast;
+            weather.list = response.data.data;
+            console.log(response.data.data);
+            store.city = response.data.city;
+            city.value = store.city;
+        });
+}
+async function ChangeWeatherCity() {
+    await axios
+        .get(
+            "https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=41683822&appsecret=A7hMMWSV&city=" + store.city
+        )
+        .then((response) => {
+            weather.list = response.data.data;
+            store.city = response.data.city;
+            city.value = store.city;
         });
 }
 GetWeather();
 
-const GetWeatherImg = (src:string) => {
+const GetWeatherImg = (src: string) => {
     return new URL(`../assets/images/weather/${src}.png`, import.meta.url).href;
 };
 
 // 获取月份
 const month = new Date().getMonth();
-
 </script>
 
 <style scoped>
@@ -148,7 +152,7 @@ input#change_city_input {
 
 .weather_cards {
     justify-content: space-between;
-    width: 1200px;
+    width: 1300px;
     margin: 50px auto;
     margin-top: 140px;
     overflow: hidden;
@@ -157,7 +161,7 @@ input#change_city_input {
 .hover_weather_cards {
     display: flex;
     justify-content: space-between;
-    width: 1500px;
+    width: 2300px;
 }
 
 .weather_card {
