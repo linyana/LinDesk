@@ -35,16 +35,16 @@ import axios from "axios";
 
 // pinia 记录城市
 // store.city:城市
-const store = cityStore();
+const store: object = cityStore();
 
-let city = ref(store.city);
+let city: string = ref(store.city);
 
 // 输入框
 // isWrite: 判断应该显示输入框还是提示框
-let cityInput = ref(store.city);
-let isWrite = ref(false);
+let cityInput: string = ref(store.city);
+let isWrite: boolean = ref(false);
 
-let isWriteStyle = ref(`width: ${120 + 20 * city.value.length}px;`);
+let isWriteStyle: string = ref(`width: ${120 + 20 * city.value.length}px;`);
 
 const ShowInput = () => {
     isWrite.value = true;
@@ -62,7 +62,7 @@ const EnterCityInput = () => {
 
 // 获取input焦点
 
-const refInput = ref();
+const refInput: object = ref();
 
 const getFocus = async () => {
     nextTick(() => {
@@ -71,9 +71,10 @@ const getFocus = async () => {
 };
 
 // 监视store.city来获取天气
-const weather: any = reactive({
+const weather: object = reactive({
     list: [],
 });
+
 
 async function GetWeather() {
     await axios
@@ -82,7 +83,6 @@ async function GetWeather() {
         )
         .then((response) => {
             weather.list = response.data.data;
-            console.log(response.data.data);
             store.city = response.data.city;
             city.value = store.city;
         });
