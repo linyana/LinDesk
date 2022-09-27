@@ -34,6 +34,7 @@ import { showStore } from "../store/show";
 const store = showStore();
 
 let search_classes = ref("");
+
 if (store.isShow === true) {
     search_classes.value = "search filter_box search_top";
 } else {
@@ -69,13 +70,17 @@ watch(
 );
 
 // 搜索
-function EnterSearch(): void {
+const EnterSearch = (): void => {
     window.open(target, "_self");
     search_content.value = "";
 }
 
 // 常用标签
-const boxes: any = [
+const boxes: {
+        text: string;
+        src: string;
+        img: string;
+}[] = [
     {
         text: "百度",
         src: "https://www.baidu.com",
@@ -118,11 +123,11 @@ const boxes: any = [
     },
 ];
 
-function Open(target: string): void {
+const Open = (target: string): void => {
     window.open(target, "_self");
 }
 
-function getImageUrl(name: string): string {
+const getImageUrl = (name: string): string => {
     return new URL(`../assets/images/${name}`, import.meta.url).href;
 }
 

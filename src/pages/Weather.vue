@@ -91,6 +91,7 @@ async function GetWeather() {
             city.value = store.city;
         });
 }
+
 async function ChangeWeatherCity() {
     await axios
         .get(
@@ -102,6 +103,7 @@ async function ChangeWeatherCity() {
             city.value = store.city;
         });
 }
+
 GetWeather();
 
 const GetWeatherImg = (src: string) => {
@@ -109,7 +111,7 @@ const GetWeatherImg = (src: string) => {
 };
 
 // 获取月份
-const month = new Date().getMonth();
+const month: number = new Date().getMonth();
 </script>
 
 <style scoped>
