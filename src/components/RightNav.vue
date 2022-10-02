@@ -6,6 +6,9 @@
         <transition name="rightNav" v-show="store.isShow">
             <div>
                 <div class="circle" @click="open">
+                    <img :src="getImageUrl(img3)" />
+                </div>
+                <div class="circle" @click="open">
                     <img :src="getImageUrl(img2)" />
                 </div>
             </div>
@@ -18,7 +21,7 @@ import { ElMessage } from "element-plus";
 import { showStore } from "../store/show";
 
 // 功能未开放提示
-const open = () => {
+const open = (): void => {
     ElMessage({
         showClose: true,
         message: "加急开发中",
@@ -29,14 +32,16 @@ const open = () => {
 const store = showStore();
 
 // 图片
-const img1 = "1.png";
-const img2 = "2.png";
+const img1: string = "1.png";
+const img2: string = "2.png";
+const img3: string = "3.png";
 
-function getImageUrl(name: string): string {
-    return new URL(`../assets/images/rightNav/${name}`, import.meta.url).href;
-}
+const getImageUrl = (name: string): string => {
+    return new URL(`../assets/images/dark/rightNav/${name}`, import.meta.url)
+        .href;
+};
 
-const ChangeShow = () => {
+const ChangeShow = (): void => {
     store.isShow = !store.isShow;
 };
 </script>

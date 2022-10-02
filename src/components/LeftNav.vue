@@ -20,7 +20,7 @@ import { showStore } from "../store/show";
 const store = showStore();
 
 // 功能未开放提示
-const open = () => {
+const open = (): void => {
     ElMessage({
         showClose: true,
         message: "加急开发中",
@@ -34,17 +34,18 @@ const toSearch = () => {
     router.push("Search");
 };
 
-const toWeather = ()=>{
+const toWeather = () => {
     router.push("Weather");
-}
+};
 
 // 图片
 const img1 = "1.png";
 const img2 = "5.png";
 
 function getImageUrl(name: string): string {
-    return new URL(`../assets/images/leftNav/${name}`, import.meta.url).href;
+    return new URL(`../assets/images/dark/leftNav/${name}`, import.meta.url).href;
 }
+
 </script>
 
 <style scoped>
@@ -93,7 +94,7 @@ img {
 }
 
 .leftNav-enter-active {
-    transition: all  0.8s ease;
+    transition: all 0.8s ease;
 }
 .leftNav-leave-active {
     transition: all 0.8s ease;
