@@ -5,7 +5,7 @@
         </div>
         <transition name="rightNav" v-show="store.isShow">
             <div>
-                <div class="circle" @click="open">
+                <div class="circle" @click="ChangeTheme">
                     <img :src="getImageUrl(img3)" />
                 </div>
                 <div class="circle" @click="open">
@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { ElMessage } from "element-plus";
 import { showStore } from "../store/show";
+import { themeStore } from "../store/theme"
 
 // 功能未开放提示
 const open = (): void => {
@@ -30,6 +31,7 @@ const open = (): void => {
 
 // pinia
 const store = showStore();
+const themestore = themeStore();
 
 // 图片
 const img1: string = "1.png";
@@ -44,6 +46,14 @@ const getImageUrl = (name: string): string => {
 const ChangeShow = (): void => {
     store.isShow = !store.isShow;
 };
+
+const ChangeTheme = () => {
+    if(themestore.theme === 'dark' || ''){
+        themestore.theme = 'light';
+    }else {
+        themestore.theme = 'dark';
+    }
+}
 </script>
 
 

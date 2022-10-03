@@ -8,7 +8,7 @@
             <router-view v-slot="{ Component,  }">
                 <transition name="page" mode="out-in">
                     <keep-alive>
-                            <component :is="Component"></component>
+                        <component :is="Component"></component>
                     </keep-alive>
                 </transition>
             </router-view>
@@ -20,11 +20,12 @@
 </template>
 
 <script lang="ts">
-import { reactive, ref, defineComponent } from "vue";
+import { reactive, ref, defineComponent, watch } from "vue";
 import Search from "./pages/Search.vue";
 import LeftNav from "./components/LeftNav.vue";
 import RightNav from "./components/RightNav.vue";
 import Weather from "./pages/Weather.vue";
+import { themeStore } from "./store/theme";
 
 export default defineComponent({
     components: {
@@ -66,26 +67,29 @@ export default defineComponent({
         const light = new Light();
 
         // 创建theme来接收当前主题并应用
-        let theme: any;
-        if (localStorage.getItem("theme") === "dark") {
+        let theme = ref(light);
+
+        const themestore = new themeStore();
+
+        watch(
+            () => themestore.theme,
+            (newValue) => {
+                if (newValue === "dark") {
+                    theme.value = dark;
+                } else {
+                    theme.value = light;
+                }
+            }
+        );
+
+        if (themestore.theme === "dark") {
             theme = ref(dark);
         } else {
             theme = ref(light);
         }
 
-        // 切换主题
-        function ChangeTheme() {
-            if (localStorage.getItem("theme") === "light") {
-                localStorage.setItem("theme", "dark");
-                theme.value = dark;
-            } else {
-                localStorage.setItem("theme", "light");
-                theme.value = light;
-            }
-        }
         return {
             theme,
-            ChangeTheme,
         };
     },
 });
