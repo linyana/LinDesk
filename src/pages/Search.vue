@@ -189,6 +189,10 @@ getFocus();
     letter-spacing: 1px;
 }
 
+.search input::placeholder {
+    color: var(--color);
+}
+
 .menu {
     margin: auto;
     margin-top: 60px;

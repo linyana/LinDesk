@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { ElMessage } from "element-plus";
 import { showStore } from "../store/show";
-import { themeStore } from "../store/theme"
+import { themeStore } from "../store/theme";
 
 // 功能未开放提示
 const open = (): void => {
@@ -39,8 +39,17 @@ const img2: string = "2.png";
 const img3: string = "3.png";
 
 const getImageUrl = (name: string): string => {
-    return new URL(`../assets/images/dark/rightNav/${name}`, import.meta.url)
-        .href;
+    if (themestore.theme === "dark" || "") {
+        return new URL(
+            `../assets/images/dark/rightNav/${name}`,
+            import.meta.url
+        ).href;
+    } else {
+        return new URL(
+            `../assets/images/light/rightNav/${name}`,
+            import.meta.url
+        ).href;
+    }
 };
 
 const ChangeShow = (): void => {
@@ -48,12 +57,13 @@ const ChangeShow = (): void => {
 };
 
 const ChangeTheme = () => {
-    if(themestore.theme === 'dark' || ''){
-        themestore.theme = 'light';
-    }else {
-        themestore.theme = 'dark';
+    if (themestore.theme === "dark" || "") {
+        themestore.theme = "light";
+    } else {
+        themestore.theme = "dark";
     }
-}
+};
+
 </script>
 
 

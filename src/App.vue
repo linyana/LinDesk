@@ -42,15 +42,17 @@ export default defineComponent({
             backgroundColor: string;
             floatBackgroundColor: string;
             floatBackgroundColorHover: string;
+            searchColor: string;
         }
 
         // 暗色主题
         class Dark implements Theme {
-            public defaultColor = "rgba(255,255,255,0.8)";
-            public color = "white";
+            public defaultColor = "rgba(45,45,45,0.8)";
+            public color = "#c4bcba";
             public backgroundColor = "black";
             public floatBackgroundColor = "rgba(0,0,0,0.5)";
             public floatBackgroundColorHover = "rgba(0,0,0,0.7)";
+            public searchColor = "#c4bcba";
         }
 
         // 亮色主题
@@ -60,6 +62,7 @@ export default defineComponent({
             public backgroundColor = "white";
             public floatBackgroundColor = "rgba(255,255,255,0.5)";
             public floatBackgroundColorHover = "rgba(255,255,255,0.7)";
+            public searchColor = "#757271";
         }
 
         // 实例化对象
