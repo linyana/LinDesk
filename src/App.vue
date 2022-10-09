@@ -69,7 +69,7 @@ export default defineComponent({
         // 创建theme来接收当前主题并应用
         let theme = ref(light);
 
-        const themestore = new themeStore();
+        const themestore = themeStore();
 
         watch(
             () => themestore.theme,
