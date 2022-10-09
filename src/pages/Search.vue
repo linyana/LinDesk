@@ -73,13 +73,13 @@ watch(
 const EnterSearch = (): void => {
     window.open(target, "_self");
     search_content.value = "";
-}
+};
 
 // 常用标签
 const boxes: {
-        text: string;
-        src: string;
-        img: string;
+    text: string;
+    src: string;
+    img: string;
 }[] = [
     {
         text: "百度",
@@ -125,11 +125,11 @@ const boxes: {
 
 const Open = (target: string): void => {
     window.open(target, "_self");
-}
+};
 
 const getImageUrl = (name: string): string => {
     return new URL(`../assets/images/${name}`, import.meta.url).href;
-}
+};
 
 // 焦点
 const refInput = ref();
@@ -162,7 +162,7 @@ getFocus();
     width: 100%;
     height: 30px;
     border-radius: 15px;
-    transition: all 0.8s;
+    transition: all 0.8s,background-color 0.3s;
 }
 
 .search_top {
@@ -264,5 +264,4 @@ getFocus();
 .menu-leave-active {
     transition: opacity 0.8s ease;
 }
-
 </style>

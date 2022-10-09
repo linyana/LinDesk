@@ -84,7 +84,7 @@ const ChangeTheme = () => {
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     background-color: var(--float-backgroundColor);
-    transition: background-color 0.2s;
+    transition: background-color 0.3s;
 }
 
 .circle:nth-of-type(1) {

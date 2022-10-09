@@ -15,9 +15,11 @@
 import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
 import { showStore } from "../store/show";
+import { themeStore } from "../store/theme";
 
 // pinia
 const store = showStore();
+const themestore = themeStore();
 
 // 功能未开放提示
 const open = (): void => {
@@ -42,10 +44,19 @@ const toWeather = () => {
 const img1 = "1.png";
 const img2 = "5.png";
 
-function getImageUrl(name: string): string {
-    return new URL(`../assets/images/dark/leftNav/${name}`, import.meta.url).href;
-}
-
+const getImageUrl = (name: string): string => {
+    if (themestore.theme === "dark" || "") {
+        return new URL(
+            `../assets/images/dark/leftNav/${name}`,
+            import.meta.url
+        ).href;
+    } else {
+        return new URL(
+            `../assets/images/light/leftNav/${name}`,
+            import.meta.url
+        ).href;
+    }
+};
 </script>
 
 <style scoped>
@@ -64,7 +75,7 @@ function getImageUrl(name: string): string {
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     background-color: var(--float-backgroundColor);
-    transition: background-color 0.2s;
+    transition: background-color 0.3s;
 }
 
 .circle:nth-of-type(1) {
