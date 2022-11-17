@@ -8,7 +8,7 @@
                 <div class="circle" @click="ChangeTheme">
                     <img :src="getImageUrl(img3)" />
                 </div>
-                <div class="circle" @click="open">
+                <div class="circle" @click="OpenSetting">
                     <img :src="getImageUrl(img2)" />
                 </div>
             </div>
@@ -28,6 +28,10 @@ const open = (): void => {
         message: "加急开发中",
     });
 };
+
+const OpenSetting = () => {
+    
+}
 
 // pinia
 const store = showStore();
